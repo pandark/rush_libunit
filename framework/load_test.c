@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   construct_test.c                                   :+:      :+:    :+:   */
+/*   load_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 22:37:55 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 22:51:19 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/24 23:13:32 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/24 23:14:11 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	add_test(t_ut **list_tests, t_ut *unit_test)
 }
 
 //bool for return false ?
-void		construct_test(t_ut **list_tests, int (*f)(void *), char *name)
+void		load_test(t_ut **list_tests, char *name, int (*f)(void *))
 {
 	t_ut	*unit_test;
 

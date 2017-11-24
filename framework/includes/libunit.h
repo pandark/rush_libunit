@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:57:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 22:50:35 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/24 23:14:04 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ typedef struct			s_ut
 }						t_ut;
 
 
+void					load_test(t_ut **list_tests, char *name, int (*f)(void *));
+
 void					destruct_test(t_ut **test);
 void					destruct_all_tests(t_ut **list_tests);
-void					construct_test(t_ut **list_tests, int (*f)(void *), char *name);
-//load test
 
 //launchtests
 
