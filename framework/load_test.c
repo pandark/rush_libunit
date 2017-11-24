@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:13:32 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 23:14:11 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/24 23:48:18 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	add_test(t_ut **list_tests, t_ut *unit_test)
 }
 
 //bool for return false ?
-void		load_test(t_ut **list_tests, char *name, int (*f)(void *))
+void		load_test(t_ut **list_tests, char *name, int (*f)(void))
 {
 	t_ut	*unit_test;
 
