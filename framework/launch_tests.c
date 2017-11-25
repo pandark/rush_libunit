@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 20:37:43 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 21:57:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static int		get_result(t_unit_test *test)
 	{
 		ret = WEXITSTATUS(status);
 		if (ret == EXIT_SUCCESS)
-			ft_dprintf(2, "    > %s : %s[OK]%s\n", test->name, GRN_COLO, RAZ_COLO);
+			ft_dprintf(2, "    > %-25.25s : %s[OK]%s\n", test->name, GRN_COLO, RAZ_COLO);
 		else
-			ft_dprintf(2, "    > %s : %s[KO]%s\n", test->name, RED_COLO, RAZ_COLO);
+			ft_dprintf(2, "    > %-25.25s : %s[KO]%s\n", test->name, RED_COLO, RAZ_COLO);
 	}
 	else if (WIFSIGNALED(status))
 	{
@@ -74,6 +74,7 @@ static int		launch_test(t_unit_test *test)
 	}
 	else if (pid == 0)
 	{
+		alarm(1);
 		if (!(redirect_stdout_to_pipe(fd)))
 				return (0);
 		if (test->f() == 0)
