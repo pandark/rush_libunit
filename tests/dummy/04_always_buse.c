@@ -6,7 +6,7 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:02:28 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 09:18:12 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 11:13:17 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ static char	*ft_strcat(char *dest, const char *src)
 	return (dest);
 }
 
-int		always_buse(void)
+int			always_buse(void)
 {
-	char *s = "this is ";
-	char *s1 = "me";  
+	const char *s = "this is ";
+	const char *s1 = "me";
 
-	ft_strcat(s, s1); 
+	ft_strcat(s, s1);
 	if (*s == *"this is me")
-		return(0);
+		return (0);
 	else
-		return(-1);
+		return (-1);
 }

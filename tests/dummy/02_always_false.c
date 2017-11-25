@@ -6,14 +6,14 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:00:01 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 06:26:14 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 11:11:11 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int always_false(void)
+int	always_false(void)
 {
 	if (0)
-		return(0);
+		return (0);
 	else
-		return(-1);
+		return (-1);
 }
