@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/25 20:48:46 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/25 22:29:56 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-INC_FILES = includes/tests_libft.h 
+INC_FILES = includes/tests_libft.h
 
 INC = includes/ -I ../../framework/includes/ -I ../includes/
 
@@ -29,7 +29,16 @@ SRC = ft_itoa/00_ft_itoa_launcher.c \
 	  ft_itoa/04_ft_itoa_int_max.c \
 	  ft_itoa/05_ft_itoa_int_min.c \
 	  ft_printf/00_ft_printf_launcher.c \
-	  ft_printf/01_ft_printf_basic_print.c
+	  ft_printf/01_ft_printf_basic_print.c \
+	  ft_printf/02_ft_printf_print_d.c \
+	  ft_printf/03_ft_printf_print_d_preci.c \
+	  ft_printf/04_ft_printf_print_wchar_preci_weight.c \
+	  ft_printf/05_ft_printf_print_p.c \
+	  ft_printf/06_ft_printf_null.c \
+	  ft_printf/07_ft_printf_print_s_null_preci.c \
+	  ft_printf/08_ft_printf_print_f_0.c \
+	  ft_printf/09_ft_printf_print_f_rounded.c \
+	  ft_printf/10_ft_printf_print_f_preci.c
 
 OBJ_DIR = objs/
 

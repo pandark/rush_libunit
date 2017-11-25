@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:13:32 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 21:14:10 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 22:39:26 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	load_test(t_unit_test **tests, char *name, char flag, int (*f)(void))
 	if (tests == NULL || *tests == NULL)
 	{
 		*tests = test;
-	ft_dprintf(2, "AAAAABBBBB\n");
 	}
 	else
 	{
