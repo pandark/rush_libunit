@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 07:26:11 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 08:38:29 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ static char		*g_signals[] = {"HUP", "INT", "QUIT", "ILL", "TRAP", "ABRT",
 	"STOP", "TSTP", "CONT", "CHLD", "TTIN", "TTOU", "IO", "XCPU", "XFSZ",
 	"VTALRM", "PROF", "WINCH", "INFO", "USR1", "USR2"};
 
-static int		test_signaled(t_unit_test *test)
+static int		test_signaled(t_unit_test *test, int status)
 {
-	int			status;
 	int			ret;
 
 	ret = WTERMSIG(status);
@@ -51,7 +50,7 @@ static int		get_result(t_unit_test *test)
 	}
 	else if (WIFSIGNALED(status))
 	{
-		ret = test_signaled(test);
+		ret = test_signaled(test, status);
 	}
 	else
 	{

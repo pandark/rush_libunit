@@ -6,22 +6,19 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:02:28 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 07:24:12 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 08:59:27 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int always_buse(void)
 {
-	int *iptr;
-	char *cptr;
+	char *s = "this is ";
+	char *s1 = "me";  
 
-	cptr = malloc(sizeof(int) + 1);
-	++cptr;
-	iptr = (int *)cptr;
-	*iptr = 42;
-	if (*iptr == 42)
+	ft_strcat(s, s1); 
+	if (*s == *"this is me")
 		return(0);
 	else
 		return(-1);
