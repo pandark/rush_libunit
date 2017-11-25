@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 22:44:01 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 22:57:16 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		test_signaled(t_unit_test *test, int status)
 
 	ret = WTERMSIG(status);
 	if (ret >= 1 && ret <= 31)
-		ft_dprintf(2, "    > %s : %s[%s]⁉️%s\n", test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
+		ft_dprintf(2, "    > %-25.25s : %s[%s]⁉️%s\n", test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
 	else
 		ft_dprintf(2, "Signal inconnu || Valeur de retour : %i\n", ret);
 	return (EXIT_FAILURE);
