@@ -31,7 +31,7 @@ $(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT_DIR)/$(LIBFT)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(LIBFT):
+$(LIBFT_DIR)/$(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(OBJ_DIR):
