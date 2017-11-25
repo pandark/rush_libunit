@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 10:51:29 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 10:58:12 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int		launch_test(t_unit_test *test)
 	}
 	else
 	{
-		return get_result(test);
+		return (get_result(test));
 	}
 }
 

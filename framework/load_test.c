@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:13:32 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 02:59:16 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 10:58:58 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void	load_test(t_unit_test **tests, char *name, char flag, int (*f)(void))
 	}
 	else
 	{
-		while(cur->next != NULL)
+		while (cur->next != NULL)
 			cur = cur->next;
 		cur->next = test;
 	}
-
 }

@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:57:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 06:55:26 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 10:59:26 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ typedef struct			s_unit_test
 
 void					load_test(t_unit_test **tests, char *name, char flag, \
 		int (*f)(void));
-int					launch_tests(t_unit_test **tests);
+int						launch_tests(t_unit_test **tests);
 
 #endif
