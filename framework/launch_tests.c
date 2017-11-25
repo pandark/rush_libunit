@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 11:58:19 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 20:37:43 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ static int		get_result(t_unit_test *test)
 static int		launch_test(t_unit_test *test)
 {
 	pid_t		pid;
+	int			*fd;
 
+	fd = get_fd();
 	pid = fork();
 	if (pid == -1)
 	{
@@ -72,10 +74,13 @@ static int		launch_test(t_unit_test *test)
 	}
 	else if (pid == 0)
 	{
+		if (!(redirect_stdout_to_pipe(fd)))
+				return (0);
 		if (test->f() == 0)
 			exit(EXIT_SUCCESS);
 		else
 			exit(EXIT_FAILURE);
+		close_pipe(fd);
 	}
 	else
 	{
