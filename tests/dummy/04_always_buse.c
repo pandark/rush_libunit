@@ -6,7 +6,7 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:02:28 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 11:13:17 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 11:14:49 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			always_buse(void)
 	const char *s = "this is ";
 	const char *s1 = "me";
 
-	ft_strcat(s, s1);
+	ft_strcat((char *)s, s1);
 	if (*s == *"this is me")
 		return (0);
 	else
