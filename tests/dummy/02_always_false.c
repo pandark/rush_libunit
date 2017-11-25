@@ -6,11 +6,9 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:00:01 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 01:09:30 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 06:26:14 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "dummy.h"
 
 int always_false(void)
 {

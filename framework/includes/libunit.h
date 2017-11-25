@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:57:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 23:48:01 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 06:55:26 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,17 @@
 
 # define LIBUNIT_H
 
-# include "../libft_ntoniolo/includes/libft.h"
-# include <sys/wait.h>
-# include <signal.h>
-
-typedef struct			s_ut
+typedef struct			s_unit_test
 {
 	char				*name;
 	char				flag;
-	int					(*f)();
+	int					(*f)(void);
 
-	struct s_ut			*next;
-}						t_ut;
+	struct s_unit_test	*next;
+}						t_unit_test;
 
-
-void					load_test(t_ut **list_tests, char *name, int (*f)(void));
-
-void					destruct_test(t_ut **test);
-void					destruct_all_tests(t_ut **list_tests);
-
-
-void					launch_tests(t_ut **list_tests);
-//launchtests
+void					load_test(t_unit_test **tests, char *name, char flag, \
+		int (*f)(void));
+int					launch_tests(t_unit_test **tests);
 
 #endif

@@ -6,15 +6,16 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:01:02 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 01:11:05 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 07:16:02 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dummy.h"
-
 int always_segv(void)
 {
-	if ((*((int *)-1)) == 42)
+	int *seg;
+
+	seg = ((int *)-1);
+	if (*seg == 42)
 		return(0);
 	else
 		return(-1);

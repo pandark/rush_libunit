@@ -6,37 +6,34 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:13:32 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 23:48:18 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 02:59:16 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libunit.h"
+#include <stdlib.h>
+#include "libunit.h"
 
-static void	add_test(t_ut **list_tests, t_ut *unit_test)
+void	load_test(t_unit_test **tests, char *name, char flag, int (*f)(void))
 {
-	t_ut	*lst;
+	t_unit_test	*test;
+	t_unit_test	*cur;
 
-	if (!*list_tests)
-		*list_tests = unit_test;
+	if ((test = malloc(sizeof(*test))) == NULL)
+		exit(EXIT_FAILURE);
+	test->name = name;
+	test->flag = flag;
+	test->f = f;
+	test->next = NULL;
+	cur = *tests;
+	if (tests == NULL || *tests == NULL)
+	{
+		*tests = test;
+	}
 	else
 	{
-		lst = *list_tests;
-		while (lst->next)
-			lst = lst->next;
-		lst->next = unit_test;
+		while(cur->next != NULL)
+			cur = cur->next;
+		cur->next = test;
 	}
-}
 
-//bool for return false ?
-void		load_test(t_ut **list_tests, char *name, int (*f)(void))
-{
-	t_ut	*unit_test;
-
-	if (!(unit_test = ft_memalloc(sizeof(t_ut))))
-		return ;
-
-	unit_test->f = f;
-	unit_test->name = ft_strdup(name);//max_size ?
-
-	add_test(list_tests, unit_test);
 }

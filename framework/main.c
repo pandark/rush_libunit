@@ -6,11 +6,12 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:44:42 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/24 23:49:00 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/25 06:01:27 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libunit.h"
+#include <stdio.h>
+#include "libunit.h"
 
 int		test_true(void)
 {
@@ -24,11 +25,11 @@ int		test_false(void)
 
 int main()
 {
-	t_ut 	*l;
+	t_unit_test		*tests;
 
-	l = NULL;
+	tests = NULL;
 
-	load_test(&l, "test naze", &test_false);
-	load_test(&l, "test naze", &test_true);
-	launch_tests(&l);
+	load_test(&tests, "test naze", 0, &test_false);
+	load_test(&tests, "test naze", 0, &test_true);
+	launch_tests(&tests);
 }
