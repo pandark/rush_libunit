@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 10:58:12 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 11:32:34 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int				launch_tests(t_unit_test **tests)
 	total = 0;
 	while (*tests != NULL)
 	{
-		ret = (launch_test(*tests) == 0 && ret == 0) ? 0 : -1;
+		ret = (launch_test(*tests) == 0) ? 0 : -1;
 		success += (ret + 1);
 		++total;
 		to_be_freed = *tests;
@@ -103,5 +103,5 @@ int				launch_tests(t_unit_test **tests)
 		free(to_be_freed);
 	}
 	ft_dprintf(2, "%i/%i tests checked\n", success, total);
-	return (ret);
+	return (success == total ? 0 : -1);
 }
