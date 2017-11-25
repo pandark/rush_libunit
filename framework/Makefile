@@ -87,6 +87,3 @@ $(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c libft_ntoniolo/includes/ft_
 
 $(OBJ_DIR)/load_test.o: $(SRC_DIR)/load_test.c includes/libunit.h
 	$(CC) -c $(SRC_DIR)/load_test.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/load_test.o
-
-$(OBJ_DIR)/main.o: $(SRC_DIR)/main.c includes/libunit.h
-	$(CC) -c $(SRC_DIR)/main.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/main.o
