@@ -6,13 +6,29 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 23:02:28 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/25 08:59:27 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 09:18:12 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+static char	*ft_strcat(char *dest, const char *src)
+{
+	int i;
+	int n;
 
-int always_buse(void)
+	n = 0;
+	i = 0;
+	while (dest[i])
+		i++;
+	while (src[n])
+	{
+		dest[i + n] = src[n];
+		n++;
+	}
+	dest[i + n] = '\0';
+	return (dest);
+}
+
+int		always_buse(void)
 {
 	char *s = "this is ";
 	char *s1 = "me";  
