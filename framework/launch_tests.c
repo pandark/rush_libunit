@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 08:38:29 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 10:51:29 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libunit.h"
 
 static char		*g_signals[] = {"HUP", "INT", "QUIT", "ILL", "TRAP", "ABRT",
-	"EMT", "FPE", "KILL", "BUS", "SEGV", "SYS", "PIPE", "ALRM", "TERM", "URG",
+	"EMT", "FPE", "KILL", "BUSE", "SEGV", "SYS", "PIPE", "ALRM", "TERM", "URG",
 	"STOP", "TSTP", "CONT", "CHLD", "TTIN", "TTOU", "IO", "XCPU", "XFSZ",
 	"VTALRM", "PROF", "WINCH", "INFO", "USR1", "USR2"};
 
@@ -27,7 +27,7 @@ static int		test_signaled(t_unit_test *test, int status)
 
 	ret = WTERMSIG(status);
 	if (ret >= 1 && ret <= 31)
-		ft_dprintf(2, "> %s : [%s]\n", test->name, g_signals[ret - 1]);
+		ft_dprintf(2, "    > %s : [%s]\n", test->name, g_signals[ret - 1]);
 	else
 		ft_dprintf(2, "Signal inconnu || Valeur de retour : %i\n", ret);
 	return (EXIT_FAILURE);
@@ -44,9 +44,9 @@ static int		get_result(t_unit_test *test)
 	{
 		ret = WEXITSTATUS(status);
 		if (ret == EXIT_SUCCESS)
-			ft_dprintf(2, "> %s : [OK]\n", test->name);
+			ft_dprintf(2, "    > %s : [OK]\n", test->name);
 		else
-			ft_dprintf(2, "> %s : [KO]\n", test->name);
+			ft_dprintf(2, "    > %s : [KO]\n", test->name);
 	}
 	else if (WIFSIGNALED(status))
 	{
@@ -87,14 +87,21 @@ int				launch_tests(t_unit_test **tests)
 {
 	t_unit_test	*to_be_freed;
 	int			ret;
+	int			success;
+	int			total;
 
 	ret = 0;
+	success = 0;
+	total = 0;
 	while (*tests != NULL)
 	{
 		ret = (launch_test(*tests) == 0 && ret == 0) ? 0 : -1;
+		success += (ret + 1);
+		++total;
 		to_be_freed = *tests;
 		*tests = (*tests)->next;
 		free(to_be_freed);
 	}
+	ft_dprintf(2, "%i/%i tests checked\n", success, total);
 	return (ret);
 }
