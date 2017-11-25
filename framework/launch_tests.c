@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 11:32:34 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/25 11:58:19 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		test_signaled(t_unit_test *test, int status)
 
 	ret = WTERMSIG(status);
 	if (ret >= 1 && ret <= 31)
-		ft_dprintf(2, "    > %s : [%s]\n", test->name, g_signals[ret - 1]);
+		ft_dprintf(2, "    > %s : %s[%s]%s\n", test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
 	else
 		ft_dprintf(2, "Signal inconnu || Valeur de retour : %i\n", ret);
 	return (EXIT_FAILURE);
@@ -44,9 +44,9 @@ static int		get_result(t_unit_test *test)
 	{
 		ret = WEXITSTATUS(status);
 		if (ret == EXIT_SUCCESS)
-			ft_dprintf(2, "    > %s : [OK]\n", test->name);
+			ft_dprintf(2, "    > %s : %s[OK]%s\n", test->name, GRN_COLO, RAZ_COLO);
 		else
-			ft_dprintf(2, "    > %s : [KO]\n", test->name);
+			ft_dprintf(2, "    > %s : %s[KO]%s\n", test->name, RED_COLO, RAZ_COLO);
 	}
 	else if (WIFSIGNALED(status))
 	{
