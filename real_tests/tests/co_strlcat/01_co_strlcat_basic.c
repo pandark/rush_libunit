@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   07_ft_printf_print_s_null_preci.c                  :+:      :+:    :+:   */
+/*   01_co_strlcat_basic.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 22:15:07 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 14:51:45 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/26 17:34:52 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 17:45:25 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-int		ft_printf_print_s_null_preci(void)
+int	co_strlcat_basic(void)
 {
-	char	buffer[UT_SIZE + 1];
-	char	buffer2[UT_SIZE + 1];
-	int		ret;
-	int		ret2;
+	char dest[50];
+	char src[50];
+	int ret;
 
-	ft_bzero(buffer, UT_SIZE);
-	ft_bzero(buffer2, UT_SIZE);
-	ret = ft_printf("[%.2s]", NULL);
-	read(get_fd_out(), buffer, UT_SIZE);
-	ret2 = dprintf(1, "[%.2s]", NULL);
-	read(get_fd_out(), buffer2, UT_SIZE);
-	if (!ft_strcmp(buffer2, buffer) || ret != ret2)
+	ft_bzero(dest, 50);
+	ft_bzero(src, 50);
+	ft_strcpy(dest, "123");
+	ft_strcpy(src, "456");
+	ret = ft_strlcat(dest, src, 2);
+	if (!ft_strcmp(dest, "12345") || ret != 6)
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

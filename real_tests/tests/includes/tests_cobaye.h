@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_libft.h                                      :+:      :+:    :+:   */
+/*   tests_cobaye.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 16:58:47 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 15:38:57 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 17:55:24 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdio.h>
 
 /*
-**		FT_ITOA
+**		CO_ITOA
 */
 
 int		co_itoa_launcher(void);
@@ -31,20 +31,26 @@ int		co_itoa_int_max(void);
 int		co_itoa_int_min(void);
 
 /*
-**		PRINTF
+**		CO_PUTNBR
 */
 
-int		ft_printf_launcher(void);
+int		co_putnbr_launcher(void);
 
-int		ft_printf_basic_print(void);
-int		ft_printf_print_d(void);
-int		ft_printf_print_d_preci(void);
-int		ft_printf_print_wchar_preci_weight(void);
-int		ft_printf_print_p(void);
-int		ft_printf_null(void);
-int		ft_printf_print_s_null_preci(void);
-int		ft_printf_print_f_0(void);
-int		ft_printf_print_f_rounded(void);
-int		ft_printf_print_f_preci(void);
+int		co_putnbr_basic(void);
+int		co_putnbr_negative(void);
+int		co_putnbr_zero(void);
+int		co_putnbr_int_max(void);
+int		co_putnbr_int_min(void);
+
+/*
+**		CO_STRLCAT
+*/
+
+int		co_strlcat_launcher(void);
+int		co_strlcat_basic(void);
+int		co_strlcat_size_0(void);
+int		co_strlcat_dest_bigger_than_size(void);
+int		co_strlcat_dest_len_and_size_same(void);
+int		co_strlcat_size_bigger_then_len_src(void);
 
 #endif

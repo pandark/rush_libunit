@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_ft_printf_print_p.c                             :+:      :+:    :+:   */
+/*   02_co_strlcat_dest_bigger_than_size.c              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 22:14:56 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 14:51:53 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/26 17:35:25 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 17:46:57 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-int		ft_printf_print_p(void)
+int	co_strlcat_dest_bigger_than_size(void)
 {
-	char	buffer[UT_SIZE + 1];
-	char	buffer2[UT_SIZE + 1];
-	int		ret;
-	int		ret2;
+	char dest[50];
+	char src[50];
+	int ret;
 
-	ft_bzero(buffer, UT_SIZE);
-	ft_bzero(buffer2, UT_SIZE);
-	ret = ft_printf("Salut ! %p", &ft_printf);
-	read(get_fd_out(), buffer, UT_SIZE);
-	ret2 = dprintf(1, "Salut ! %p", &ft_printf);
-	read(get_fd_out(), buffer2, UT_SIZE);
-	if (!ft_strcmp(buffer2, buffer) || ret != ret2)
+	ft_bzero(dest, 50);
+	ft_bzero(src, 50);
+	ft_strcpy(dest, "123456789");
+	ft_strcpy(src, "abc");
+	ret = ft_strlcat(dest, src, 5);
+	if (!ft_strcmp(dest, "123456789") || ret != 8)
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

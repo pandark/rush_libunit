@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 17:16:30 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 15:31:03 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 17:55:08 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests_cobaye.h"
 
-#define NB_TEST 1
+#define NB_TEST 3
 
-static char *g_test[] = {"ft_itoa\0"};
+static char *g_test[] = {"co_itoa\0", "co_putnbr", "co_strlcat"};
 
-static int (*g_fun[])(void) = {&co_itoa_launcher};
+static int (*g_fun[])(void) = {&co_itoa_launcher,
+								&co_putnbr_launcher,
+								&co_strlcat_launcher};
 
 static int		check_tab(char *arg)
 {

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ft_printf_print_d.c                             :+:      :+:    :+:   */
+/*   03_co_putnbr_zero.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 22:02:26 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 14:52:00 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/26 16:58:59 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 17:03:41 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-int		ft_printf_print_d(void)
+int co_putnbr_zero(void)
 {
 	char	buffer[UT_SIZE + 1];
-	char	buffer2[UT_SIZE + 1];
-	int		ret;
-	int		ret2;
 
 	ft_bzero(buffer, UT_SIZE);
-	ft_bzero(buffer2, UT_SIZE);
-	ret = ft_printf("Salut ! %d", 123456);
+	co_putnbr(0);
 	read(get_fd_out(), buffer, UT_SIZE);
-	ret2 = dprintf(1, "Salut ! %d", 123456);
-	read(get_fd_out(), buffer2, UT_SIZE);
-	if (!ft_strcmp(buffer2, buffer) || ret != ret2)
+
+	if (!ft_strcmp("0", buffer))
 		return (0);
 	return (-1);
 }

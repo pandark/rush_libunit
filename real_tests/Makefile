@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 16:54:32 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 17:22:19 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ INC = includes/
 OBJ_DIR = objs/
 
 SRC = srcs/co_itoa.c \
+	  srcs/co_strlen.c \
+	  srcs/co_strlcat.c \
 	  srcs/co_putnbr.c 
 
 OBJET = $(SRC:.c=.o)

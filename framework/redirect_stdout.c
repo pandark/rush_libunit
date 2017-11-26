@@ -6,13 +6,13 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 20:19:49 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:46:43 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 17:16:31 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-int			redirect_stdout(int *fd)
+int			redirect_stdout_to_pipe(int *fd)
 {
 	if (pipe(fd) != 0)
 		return (0);

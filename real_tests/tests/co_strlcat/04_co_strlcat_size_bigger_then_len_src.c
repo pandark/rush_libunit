@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_ft_printf_print_d_preci.c                       :+:      :+:    :+:   */
+/*   04_co_strlcat_size_bigger_then_len_src.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 22:14:42 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:17:33 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/26 17:44:19 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 17:48:02 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-int		ft_printf_print_d_preci(void)
+int	co_strlcat_size_bigger_then_len_src(void)
 {
-	char	buffer[UT_SIZE + 1];
-	char	buffer2[UT_SIZE + 1];
-	int		ret;
-	int		ret2;
+	char dest[50];
+	char src[50];
+	int ret;
 
-	ft_bzero(buffer, UT_SIZE);
-	ft_bzero(buffer2, UT_SIZE);
-	ft_printf("Salut ! %.3i", 1234568);
-	ret = read(get_fd_out(), buffer, UT_SIZE);
-	ret2 = dprintf(1, "Salut ! %.3i", 1234568);
-	read(get_fd_out(), buffer2, UT_SIZE);
-	if (!ft_strcmp(buffer2, buffer) || ret != ret2)
+	ft_bzero(dest, 50);
+	ft_bzero(src, 50);
+	ft_strcpy(dest, "12345");
+	ft_strcpy(src, "abc");
+	ret = ft_strlcat(dest, src, 50000);
+	if (!ft_strcmp(dest, "12345abc") || ret != 8)
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }
