@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 17:16:30 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 18:11:10 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 20:53:24 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,19 @@ int				main(int argc, char **argv)
 {
 	long	flag;
 	int		i;
+	int		ret;
 
 	ft_dprintf(2, "ARG [%s]\n", argv[1]);
 	flag = LONG_MAX;
 	if (argv[1])
 		parse_flag(argc, argv, &flag);
+	ret = 0;
 	i = 0;
 	while (i < NB_TEST)
 	{
 		if (flag & (1 << i))
-			(g_fun[i])();
+			ret = ((g_fun[i])() == 0) ? ret : -1;
 		i++;
 	}
-	return (0);
+	return (ret);
 }
