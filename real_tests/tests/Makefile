@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 20:21:19 by apachkof         ###   ########.fr        #
+#    Updated: 2017/11/26 21:57:25 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,12 +79,12 @@ $(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(CPPFLAGS_FILES)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	@echo "Clean tests"
+	@echo "Clean tests libcobaye"
 	@(make clean -C $(DIR_LIB_TESTED))
 	@/bin/rm -rf $(OBJ_DIR)
 
 fclean:
-	@echo "fClean test_libft"
+	@echo "fClean tests libcobaye"
 	@/bin/rm -rf $(OBJ_DIR)
 	@(make fclean -C $(DIR_LIB_TESTED))
 	@/bin/rm -f $(NAME)

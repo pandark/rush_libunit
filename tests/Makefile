@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 20:21:32 by apachkof         ###   ########.fr        #
+#    Updated: 2017/11/26 21:49:46 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) lib $(addprefix $(OBJ_DIR), $(OBJET))
 	@$(CC) $(CPPFLAGS) $(addprefix $(OBJ_DIR), $(OBJET)) $(LDLIBS) $(LDFLAGS) -o $(NAME)
+
+test: $(NAME)
 	./$(NAME) $(ARGV)
 
 lib:
@@ -58,11 +60,11 @@ $(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(CPPFLAGS_FILES)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	@echo "Clean tests"
+	@echo "Clean dummy tests"
 	@/bin/rm -rf $(OBJ_DIR)
 
 fclean:
-	@echo "fClean test_libft"
+	@echo "fClean dummy test"
 	@/bin/rm -rf $(OBJ_DIR)
 	@/bin/rm -f $(NAME)
 
