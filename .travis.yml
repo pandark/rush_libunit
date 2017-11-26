@@ -1,0 +1,6 @@
+language: c
+script: make -C real_tests/ && make test -C real_tests/
+os: osx
+compiler:
+  - clang
+  - gcc
