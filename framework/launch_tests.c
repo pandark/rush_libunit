@@ -6,13 +6,14 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:46:16 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 19:08:12 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/wait.h>
 #include <signal.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "libunit.h"
 
 static char		*g_signals[] = {"HUP", "INT", "QUIT", "ILL", "TRAP", "ABRT",
@@ -20,16 +21,72 @@ static char		*g_signals[] = {"HUP", "INT", "QUIT", "ILL", "TRAP", "ABRT",
 	"STOP", "TSTP", "CONT", "CHLD", "TTIN", "TTOU", "IO", "XCPU", "XFSZ",
 	"VTALRM", "PROF", "WINCH", "INFO", "USR1", "USR2"};
 
+static void		local_putnbr_fd(int fd, long int n)
+{
+	long int	nb;
+	char		c;
+
+	nb = n;
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = nb * -1;
+	}
+	if (nb > 9)
+	{
+		local_putnbr_fd(fd, nb / 10);
+		c = ((nb % 10) + 48);
+		write(fd, &c, 1);
+	}
+	else
+	{
+		c = nb + 48;
+		write(fd, &c, 1);
+	}
+}
+
+static int		print_normal_return(char *name, int res)
+{
+	int len;
+
+	write(2, "    > ", 6);
+	len = 0;
+	while (name[len])
+		len++;
+	write(2, name, len % 25);
+	while (len++ < 25)
+		write(2, " ", 1);
+	write(2, " : ", 3);
+	if (res == EXIT_SUCCESS)
+		write(2, "\033[32m[OK]💚", sizeof("\033[32m[OK]💚") - 1);
+	else
+		write(2, "\033[31m[KO]😂", sizeof("\033[31m[KO]😂") - 1);
+	write(2, "\033[0m\n", sizeof("\033[0m\n") - 1);
+	return (res);
+}
+
 static int		test_signaled(t_unit_test *test, int status)
 {
 	int			ret;
+	int			len;
 
 	ret = WTERMSIG(status);
 	if (ret >= 1 && ret <= 31)
-		ft_dprintf(2, "    > %-25.25s : %s[%s]⁉️%s\n",
-						test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
+	{
+		write(2, "    > ", 6);
+		len = 0;
+		while (test->name[len])
+			len++;
+		write(2, test->name, len % 25);
+		while (len++ < 25)
+			write(2, " ", 1);
+		write(2, " : ", 3);
+		write(2, "\033[31m[", sizeof("\033[32m["));
+		write(2, g_signals[ret], 4);
+		write(2, "]⁉️\033[0m\n", sizeof("]⁉️\033[0m\n"));
+	}
 	else
-		ft_dprintf(2, "Signal inconnu || Valeur de retour : %i\n", ret);
+		write(2, "Signal inconnu\n", sizeof("Signal inconnu\n"));
 	return (EXIT_FAILURE);
 }
 
@@ -41,22 +98,14 @@ static int		get_result(t_unit_test *test)
 	status = 0;
 	wait(&status);
 	if (WIFEXITED(status))
-	{
-		ret = WEXITSTATUS(status);
-		if (ret == EXIT_SUCCESS)
-			ft_dprintf(2, "    > %-25.25s : %s[OK]💚%s\n",
-							test->name, GRN_COLO, RAZ_COLO);
-		else
-			ft_dprintf(2, "    > %-25.25s : %s[KO]😂%s\n",
-							test->name, RED_COLO, RAZ_COLO);
-	}
+		ret = print_normal_return(test->name, WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
 	{
 		ret = test_signaled(test, status);
 	}
 	else
 	{
-		ft_dprintf(2, "WTF ?\n");
+		write(2, "WTF ?\n", sizeof("WTF ?\n"));
 		ret = EXIT_FAILURE;
 	}
 	return (ret);
@@ -71,7 +120,8 @@ static int		launch_test(t_unit_test *test)
 	pid = fork();
 	if (pid == -1)
 	{
-		ft_dprintf(2, "Erreur lors de la création du processus\n");
+		write(2, "Erreur lors de la création du processus\n",
+			sizeof("Erreur lors de la création du processus\n"));
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
@@ -110,6 +160,9 @@ int				launch_tests(t_unit_test **tests)
 		*tests = (*tests)->next;
 		free(to_be_freed);
 	}
-	ft_dprintf(2, "%i/%i tests checked\n", success, total);
+	local_putnbr_fd(2, success);
+	write(2, "/", 1);
+	local_putnbr_fd(2, total);
+	write(2, " tests checked\n", sizeof("tests checked\n"));
 	return (success == total ? 0 : -1);
 }

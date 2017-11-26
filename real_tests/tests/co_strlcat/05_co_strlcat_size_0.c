@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:35:00 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 18:07:46 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 18:55:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	co_strlcat_size_0(void)
 	ft_bzero(src, 50);
 	ft_strcpy(dest, "123");
 	ft_strcpy(src, "456");
-	ret = ft_strlcat(dest, src, 0);
-	if (!ft_strcmp(dest, "123") || ret != 3)
+	ret = co_strlcat(dest, src, 0);
+	if (!ft_strcmp(dest, "123") && ret == 3)
 		return (0);
 	else
 		return (-1);

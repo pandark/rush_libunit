@@ -6,11 +6,12 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 20:19:49 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:16:31 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 19:08:34 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
+#include <unistd.h>
 
 int			redirect_stdout_to_pipe(int *fd)
 {

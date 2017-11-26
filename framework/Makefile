@@ -3,8 +3,8 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic -g3 -O1
 # -fno-omit-frame-pointer -fsanitize=address
-CPPFLAGS = -I./includes/ -I./libft_ntoniolo/includes/
-LDLIBS = -lft
+CPPFLAGS = -I./includes/
+LDLIBS =
 LDFLAGS = -Llibft_ntoniolo/
 NAME = libunit.a
 
@@ -19,21 +19,15 @@ SRC = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
 OBJ_DIR = obj
 OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o, $(SRC))
 
-LIBFT_DIR = ./libft_ntoniolo
-LIBFT = libft.a
-
 STEAM = \033[1;30m
 COFFEE = \033[1;31m
 NC = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT_DIR)/$(LIBFT)
+$(NAME): $(OBJ_DIR) $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
-
-$(LIBFT_DIR)/$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -79,23 +73,11 @@ depend:
 
 ################################### Generated ##################################
 
-$(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c includes/libunit.h \
-  includes/../libft_ntoniolo/includes/libft.h \
-  libft_ntoniolo/includes/get_next_line.h \
-  libft_ntoniolo/includes/libft.h libft_ntoniolo/includes/ft_printf.h \
-  libft_ntoniolo/includes/btree.h
+$(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c includes/libunit.h
 	$(CC) -c $(SRC_DIR)/launch_tests.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/launch_tests.o
 
-$(OBJ_DIR)/redirect_stdout.o: $(SRC_DIR)/redirect_stdout.c includes/libunit.h \
-  includes/../libft_ntoniolo/includes/libft.h \
-  libft_ntoniolo/includes/get_next_line.h \
-  libft_ntoniolo/includes/libft.h libft_ntoniolo/includes/ft_printf.h \
-  libft_ntoniolo/includes/btree.h
+$(OBJ_DIR)/redirect_stdout.o: $(SRC_DIR)/redirect_stdout.c includes/libunit.h
 	$(CC) -c $(SRC_DIR)/redirect_stdout.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/redirect_stdout.o
 
-$(OBJ_DIR)/load_test.o: $(SRC_DIR)/load_test.c includes/libunit.h \
-  includes/../libft_ntoniolo/includes/libft.h \
-  libft_ntoniolo/includes/get_next_line.h \
-  libft_ntoniolo/includes/libft.h libft_ntoniolo/includes/ft_printf.h \
-  libft_ntoniolo/includes/btree.h
+$(OBJ_DIR)/load_test.o: $(SRC_DIR)/load_test.c includes/libunit.h
 	$(CC) -c $(SRC_DIR)/load_test.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/load_test.o

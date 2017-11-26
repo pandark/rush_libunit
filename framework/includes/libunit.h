@@ -6,15 +6,13 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:57:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 15:24:25 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 19:07:27 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 
 # define LIBUNIT_H
-
-# include "../libft_ntoniolo/includes/libft.h"
 
 # define RAZ_COLO "\033[0m"
 # define RED_COLO "\033[31m"
