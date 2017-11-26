@@ -6,23 +6,22 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 17:16:30 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:55:08 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 18:11:10 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests_cobaye.h"
 
-#define NB_TEST 3
-
 static char *g_test[] = {"co_itoa\0", "co_putnbr", "co_strlcat"};
 
-static int (*g_fun[])(void) = {&co_itoa_launcher,
-								&co_putnbr_launcher,
-								&co_strlcat_launcher};
+static int (*g_fun[])(void) = {&co_itoa_launcher, \
+	&co_putnbr_launcher, \
+	&co_strlcat_launcher};
 
 static int		check_tab(char *arg)
 {
 	int i;
+
 	i = 0;
 	while (i < NB_TEST)
 	{
@@ -35,8 +34,8 @@ static int		check_tab(char *arg)
 
 static int		parse_flag(int argc, char **argv, long *f)
 {
-	int i;
-	char **arg;
+	int		i;
+	char	**arg;
 
 	(void)argc;
 	if (!(arg = ft_strsplit(argv[1], ' ')))
@@ -51,8 +50,7 @@ static int		parse_flag(int argc, char **argv, long *f)
 	return (1);
 }
 
-
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	long	flag;
 	int		i;
@@ -61,7 +59,6 @@ int			main(int argc, char **argv)
 	flag = LONG_MAX;
 	if (argv[1])
 		parse_flag(argc, argv, &flag);
-
 	i = 0;
 	while (i < NB_TEST)
 	{

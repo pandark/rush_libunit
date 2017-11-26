@@ -6,17 +6,19 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 16:58:47 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:55:24 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 18:11:33 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TESTS_COBAYE_H
 # define TESTS_COBAYE_H
 
-#include "libunit.h"
-#include "cobaye.h"
-#include <limits.h>
-#include <stdio.h>
+# include "libunit.h"
+# include "cobaye.h"
+# include <limits.h>
+# include <stdio.h>
+
+# define NB_TEST 3
 
 /*
 **		CO_ITOA

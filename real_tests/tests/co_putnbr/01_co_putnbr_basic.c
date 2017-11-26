@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 16:55:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:03:25 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 18:08:40 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		co_putnbr_basic(void)
 	ft_bzero(buffer, UT_SIZE);
 	co_putnbr(123);
 	read(get_fd_out(), buffer, UT_SIZE);
-
 	if (!ft_strcmp("123", buffer))
 		return (0);
 	return (-1);

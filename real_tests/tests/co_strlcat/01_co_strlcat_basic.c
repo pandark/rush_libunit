@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 17:34:52 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:45:25 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 18:06:36 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	co_strlcat_basic(void)
 {
-	char dest[50];
-	char src[50];
-	int ret;
+	char	dest[50];
+	char	src[50];
+	int		ret;
 
 	ft_bzero(dest, 50);
 	ft_bzero(src, 50);
