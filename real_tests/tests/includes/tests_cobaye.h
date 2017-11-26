@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 16:58:47 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 18:11:33 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 19:19:30 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define TESTS_COBAYE_H
 
 # include "libunit.h"
+# include "libft.h"
 # include "cobaye.h"
 # include <limits.h>
 # include <stdio.h>

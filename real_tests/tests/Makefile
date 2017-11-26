@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 17:54:43 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 19:18:38 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,19 @@ NAME_LIB_TESTED = libcobaye.a
 DIR_LIB_TESTED = ../
 DIR_FRAMEWORK = ../../framework/
 
+DIR_LIBFT = ../../libft_ntoniolo/
+
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
 CPPFLAGS_FILES = includes/tests_cobaye.h
 
-CPPFLAGS = -I includes/ -I $(DIR_FRAMEWORK)/includes/ -I ../includes/ -I $(DIR_FRAMEWORK)/libft_ntoniolo/includes/
+CPPFLAGS = -I includes/ -I $(DIR_FRAMEWORK)/includes/ -I $(DIR_LIB_TESTED)includes/ -I $(DIR_LIBFT)includes/
 
 LDLIBS = -lft -lunit -lcobaye
 
-LDFLAGS = -L $(DIR_FRAMEWORK)/ -L $(DIR_FRAMEWORK)/libft_ntoniolo/ -L $(DIR_LIB_TESTED)
+LDFLAGS = -L $(DIR_FRAMEWORK)/ -L $(DIR_LIBFT) -L $(DIR_LIB_TESTED)
 
 SRC_DIR =
 
@@ -64,6 +66,7 @@ $(NAME): $(OBJ_DIR) lib $(addprefix $(OBJ_DIR), $(OBJET))
 
 lib:
 	@(make -C $(DIR_FRAMEWORK))
+	@(make -C $(DIR_LIBFT))
 	@(make -C $(DIR_LIB_TESTED))
 
 $(OBJ_DIR) :
@@ -79,6 +82,7 @@ clean:
 	@echo "Clean tests"
 	@(make clean -C $(DIR_FRAMEWORK))
 	@(make clean -C $(DIR_LIB_TESTED))
+	@(make clean -C $(DIR_LIBFT))
 	@/bin/rm -rf $(OBJ_DIR)
 
 fclean:
@@ -86,6 +90,7 @@ fclean:
 	@/bin/rm -rf $(OBJ_DIR)
 	@(make fclean -C $(DIR_FRAMEWORK))
 	@(make fclean -C $(DIR_LIB_TESTED))
+	@(make fclean -C $(DIR_LIBFT))
 	@/bin/rm -f $(NAME)
 
 re: fclean all
