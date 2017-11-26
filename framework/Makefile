@@ -1,5 +1,17 @@
-MAKE = make
-CC = gcc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/11/26 20:20:01 by apachkof          #+#    #+#              #
+#    Updated: 2017/11/26 20:20:43 by apachkof         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+MAKE ?= make
+CC ?= gcc
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic -g3 -O1
 # -fno-omit-frame-pointer -fsanitize=address

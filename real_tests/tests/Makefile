@@ -6,7 +6,7 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 19:23:08 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 20:21:19 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ DIR_FRAMEWORK = ../../framework/
 
 DIR_LIBFT = ../../libft_ntoniolo/
 
-CC = gcc
+CC ?= gcc
 
 CFLAGS = -Wall -Werror -Wextra
 

@@ -6,14 +6,14 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 19:29:55 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 20:21:32 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = dummy_test
 DIR_FRAMEWORK = ../framework/
 
-CC = gcc
+CC ?= gcc
 
 CFLAGS = -Wall -Werror -Wextra
 

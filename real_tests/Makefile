@@ -6,13 +6,13 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/26 18:19:36 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 20:21:10 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libcobaye.a
 
-CC = gcc
+CC ?= gcc
 
 CFLAGS = -Wall -Werror -Wextra -g
 
