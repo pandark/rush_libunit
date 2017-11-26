@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_ft_printf_print_d_preci.c                       :+:      :+:    :+:   */
+/*   05_co_itoa_int_min.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 22:14:42 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:17:33 by ntoniolo         ###   ########.fr       */
+/*   Created: 2017/11/25 18:26:54 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 15:28:23 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-int		ft_printf_print_d_preci(void)
+int	co_itoa_int_min(void)
 {
-	char	buffer[UT_SIZE + 1];
-	char	buffer2[UT_SIZE + 1];
-	int		ret;
-	int		ret2;
+	char *ret;
 
-	ft_bzero(buffer, UT_SIZE);
-	ft_bzero(buffer2, UT_SIZE);
-	ft_printf("Salut ! %.3i", 1234568);
-	ret = read(get_fd_out(), buffer, UT_SIZE);
-	ret2 = dprintf(1, "Salut ! %.3i", 1234568);
-	read(get_fd_out(), buffer2, UT_SIZE);
-	if (!ft_strcmp(buffer2, buffer) || ret != ret2)
+	ret = NULL;
+	ret = co_itoa(INT_MIN);
+	if (!ft_strcmp(ret, "-2147483648"))
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

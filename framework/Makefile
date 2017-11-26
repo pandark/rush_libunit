@@ -78,12 +78,16 @@ depend:
 
 ################################### Generated ##################################
 
-$(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c libft_ntoniolo/includes/ft_printf.h \
-  libft_ntoniolo/includes/libft.h \
+$(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c includes/libunit.h \
+  includes/../libft_ntoniolo/includes/libft.h \
   libft_ntoniolo/includes/get_next_line.h \
-  libft_ntoniolo/includes/btree.h \
-  libft_ntoniolo/includes/../includes/ft_printf.h includes/libunit.h
+  libft_ntoniolo/includes/libft.h libft_ntoniolo/includes/ft_printf.h \
+  libft_ntoniolo/includes/btree.h
 	$(CC) -c $(SRC_DIR)/launch_tests.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/launch_tests.o
 
-$(OBJ_DIR)/load_test.o: $(SRC_DIR)/load_test.c includes/libunit.h
+$(OBJ_DIR)/load_test.o: $(SRC_DIR)/load_test.c includes/libunit.h \
+  includes/../libft_ntoniolo/includes/libft.h \
+  libft_ntoniolo/includes/get_next_line.h \
+  libft_ntoniolo/includes/libft.h libft_ntoniolo/includes/ft_printf.h \
+  libft_ntoniolo/includes/btree.h
 	$(CC) -c $(SRC_DIR)/load_test.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/load_test.o

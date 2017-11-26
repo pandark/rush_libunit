@@ -6,18 +6,17 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 17:16:30 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 21:20:14 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 15:31:03 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#include "tests_cobaye.h"
 
-#define NB_TEST 2
+#define NB_TEST 1
 
-static char *g_test[] = {"ft_itoa\0", "ft_printf\0"};
+static char *g_test[] = {"ft_itoa\0"};
 
-static int (*g_fun[])(void) = {&ft_itoa_launcher,
-							&ft_printf_launcher};
+static int (*g_fun[])(void) = {&co_itoa_launcher};
 
 static int		check_tab(char *arg)
 {
@@ -37,6 +36,7 @@ static int		parse_flag(int argc, char **argv, long *f)
 	int i;
 	char **arg;
 
+	(void)argc;
 	if (!(arg = ft_strsplit(argv[1], ' ')))
 		return (0);
 	*f = 0;

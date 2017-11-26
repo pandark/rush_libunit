@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 22:15:02 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 22:36:04 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 14:51:50 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 int		ft_printf_null(void)
 {
 	char	buffer[UT_SIZE + 1];
-	char 	buffer2[UT_SIZE + 1];
+	char	buffer2[UT_SIZE + 1];
 	int		ret;
 	int		ret2;
 
 	ft_bzero(buffer, UT_SIZE);
 	ft_bzero(buffer2, UT_SIZE);
-
 	ret = ft_printf(" ");
 	read(get_fd_out(), buffer, UT_SIZE);
 	ret2 = dprintf(1, " ");

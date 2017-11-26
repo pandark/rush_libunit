@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 22:14:50 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/25 22:36:14 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 14:51:57 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 int		ft_printf_print_wchar_preci_weight(void)
 {
 	char	buffer[UT_SIZE + 1];
-	char 	buffer2[UT_SIZE + 1];
+	char	buffer2[UT_SIZE + 1];
 	int		ret;
 	int		ret2;
 
 	ft_bzero(buffer, UT_SIZE);
 	ft_bzero(buffer2, UT_SIZE);
-
 	ret = ft_printf("Salut ! %.1s", "é");
 	read(get_fd_out(), buffer, UT_SIZE);
 	ret2 = dprintf(1, "Salut ! %.1s", "é");

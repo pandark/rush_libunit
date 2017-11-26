@@ -6,60 +6,50 @@
 #    By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2017/11/25 22:29:56 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/11/26 16:37:23 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = tests_libft
+NAME = tests_cobaye
+NAME_LIB_TESTED = libcobaye.a
+DIR_LIB_TESTED = ../
+DIR_FRAMEWORK = ../../framework/
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-INC_FILES = includes/tests_libft.h
+CPPFLAGS_FILES = includes/tests_cobaye.h
 
-INC = includes/ -I ../../framework/includes/ -I ../includes/
+CPPFLAGS = -I includes/ -I $(DIR_FRAMEWORK)/includes/ -I ../includes/ -I $(DIR_FRAMEWORK)/libft_ntoniolo/includes/
+
+LDLIBS = -lft -lunit -lcobaye
+
+LDFLAGS = -L $(DIR_FRAMEWORK)/ -L $(DIR_FRAMEWORK)/libft_ntoniolo/ -L $(DIR_LIB_TESTED)
 
 SRC_DIR =
 
-SRC = ft_itoa/00_ft_itoa_launcher.c \
-	  ft_itoa/01_ft_itoa_basic.c \
-	  ft_itoa/02_ft_itoa_basic_negative.c \
-	  ft_itoa/03_ft_itoa_zero.c \
-	  ft_itoa/04_ft_itoa_int_max.c \
-	  ft_itoa/05_ft_itoa_int_min.c \
-	  ft_printf/00_ft_printf_launcher.c \
-	  ft_printf/01_ft_printf_basic_print.c \
-	  ft_printf/02_ft_printf_print_d.c \
-	  ft_printf/03_ft_printf_print_d_preci.c \
-	  ft_printf/04_ft_printf_print_wchar_preci_weight.c \
-	  ft_printf/05_ft_printf_print_p.c \
-	  ft_printf/06_ft_printf_null.c \
-	  ft_printf/07_ft_printf_print_s_null_preci.c \
-	  ft_printf/08_ft_printf_print_f_0.c \
-	  ft_printf/09_ft_printf_print_f_rounded.c \
-	  ft_printf/10_ft_printf_print_f_preci.c
+SRC = main.c \
+co_itoa/00_co_itoa_launcher.c \
+co_itoa/01_co_itoa_basic.c \
+co_itoa/02_co_itoa_basic_negative.c \
+co_itoa/03_co_itoa_zero.c \
+co_itoa/04_co_itoa_int_max.c \
+co_itoa/05_co_itoa_int_min.c \
 
 OBJ_DIR = objs/
 
 OBJET = $(SRC:.c=.o)
 
-DIR_FRAMEWORK = ../../framework/
-
-DIR_LIB_TESTED = ../
-NAME_LIB_TESTED = libft.a
-ARG_LIB_TESTED = -lft
-
-FLAG_LIB = -lunit $(ARG_LIB_TESTED)
 
 DIR_LIB = libs/
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, test
 
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) lib $(addprefix $(OBJ_DIR), $(OBJET))
-	@$(CC) -I $(INC) main.c $(addprefix $(OBJ_DIR), $(OBJET)) -L./$(DIR_LIB) $(FLAG_LIB) $(SDL_FLAG) $(FRAMEWORK) -o $(NAME)
+	@$(CC) $(CPPFLAGS) $(addprefix $(OBJ_DIR), $(OBJET)) $(LDLIBS) $(LDFLAGS) $(FRAMEWORK) -o $(NAME)
 	./$(NAME) $(ARGV)
 
 lib:
@@ -71,11 +61,10 @@ lib:
 $(OBJ_DIR) :
 	@mkdir $(DIR_LIB)
 	@mkdir $(OBJ_DIR)
-	@mkdir $(OBJ_DIR)/ft_itoa
-	@mkdir $(OBJ_DIR)/ft_printf
+	@mkdir $(OBJ_DIR)/co_itoa
 
-$(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(INC_FILES)
-	$(CC) $(CFLAGS) -I ./$(INC) -o $@ -c $<
+$(OBJ_DIR)%.o: $(addprefix $(SRC_DIR), %.c) $(CPPFLAGS_FILES)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
 	@echo "Clean tests"

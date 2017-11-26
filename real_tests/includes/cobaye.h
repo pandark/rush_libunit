@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ft_printf_basic_print.c                         :+:      :+:    :+:   */
+/*   cobaye.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/25 20:48:01 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 14:50:16 by ntoniolo         ###   ########.fr       */
+/*   Created: 2016/11/03 12:15:38 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 15:27:55 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_libft.h"
+#ifndef COBAYE_H
+# define COBAYE_H
 
-int		ft_printf_basic_print(void)
-{
-	char	buffer[UT_SIZE + 1];
+# include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
 
-	ft_bzero(buffer, UT_SIZE);
-	ft_printf("A");
-	ft_printf("A");
-	ft_printf("A");
-	read(get_fd_out(), buffer, UT_SIZE);
-	if (!ft_strcmp("AAA", buffer))
-		return (0);
-	return (-1);
-}
+char			*co_itoa(long long int n);
+
+#endif
