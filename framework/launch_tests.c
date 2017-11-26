@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:19:50 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 16:46:16 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static int		test_signaled(t_unit_test *test, int status)
 
 	ret = WTERMSIG(status);
 	if (ret >= 1 && ret <= 31)
-		ft_dprintf(2, "    > %-25.25s : %s[%s]⁉️%s\n", test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
+		ft_dprintf(2, "    > %-25.25s : %s[%s]⁉️%s\n",
+						test->name, RED_COLO, g_signals[ret - 1], RAZ_COLO);
 	else
 		ft_dprintf(2, "Signal inconnu || Valeur de retour : %i\n", ret);
 	return (EXIT_FAILURE);
@@ -43,9 +44,11 @@ static int		get_result(t_unit_test *test)
 	{
 		ret = WEXITSTATUS(status);
 		if (ret == EXIT_SUCCESS)
-			ft_dprintf(2, "    > %-25.25s : %s[OK]💚%s\n", test->name, GRN_COLO, RAZ_COLO);
+			ft_dprintf(2, "    > %-25.25s : %s[OK]💚%s\n",
+							test->name, GRN_COLO, RAZ_COLO);
 		else
-			ft_dprintf(2, "    > %-25.25s : %s[KO]😂%s\n", test->name, RED_COLO, RAZ_COLO);
+			ft_dprintf(2, "    > %-25.25s : %s[KO]😂%s\n",
+							test->name, RED_COLO, RAZ_COLO);
 	}
 	else if (WIFSIGNALED(status))
 	{
@@ -75,7 +78,7 @@ static int		launch_test(t_unit_test *test)
 	{
 		alarm(1);
 		if (!(redirect_stdout_to_pipe(fd)))
-				return (0);
+			return (0);
 		if (test->f() == 0)
 			exit(EXIT_SUCCESS);
 		else
