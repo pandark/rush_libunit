@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cobaye.h                                           :+:      :+:    :+:   */
+/*   co_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 12:15:38 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 16:54:44 by ntoniolo         ###   ########.fr       */
+/*   Created: 2016/11/03 12:22:06 by ntoniolo          #+#    #+#             */
+/*   Updated: 2017/11/26 16:53:36 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COBAYE_H
-# define COBAYE_H
+#include "cobaye.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
+static void	co_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-char			*co_itoa(long long int n);
-void			co_putnbr(long int nb);
+void		co_putnbr(long int n)
+{
+	long int nb;
 
-
-#endif
+	nb = n;
+	if (nb < 0)
+	{
+		co_putchar('-');
+		nb = nb * -1;
+	}
+	if (nb > 9)
+	{
+		co_putnbr(nb / 10);
+		co_putchar((nb % 10) + 48);
+	}
+	else
+		co_putchar(nb + 48);
+}
