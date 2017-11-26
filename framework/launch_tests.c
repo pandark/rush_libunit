@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 19:32:37 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 22:10:26 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,7 @@ static int		launch_test(t_unit_test *test)
 		close_pipe(fd);
 	}
 	else
-	{
 		return (get_result(test));
-	}
 }
 
 int				launch_tests(t_unit_test **tests)

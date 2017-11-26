@@ -6,7 +6,7 @@
 #    By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 21:37:14 by apachkof          #+#    #+#              #
-#    Updated: 2017/11/26 22:00:13 by apachkof         ###   ########.fr        #
+#    Updated: 2017/11/26 22:25:01 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ all:
 	make -C ./real_tests/
 
 test:
-	make test -C ./tests/
-	make test -C ./real_tests/
+	-make test -C ./tests/
+	-make test -C ./real_tests/
 
 clean:
 	make clean -C framework/
