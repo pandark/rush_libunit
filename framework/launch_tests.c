@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 19:08:12 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 19:32:37 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static int		test_signaled(t_unit_test *test, int status)
 			write(2, " ", 1);
 		write(2, " : ", 3);
 		write(2, "\033[31m[", sizeof("\033[32m["));
-		write(2, g_signals[ret], 4);
+		write(2, g_signals[ret - 1], 4);
 		write(2, "]⁉️\033[0m\n", sizeof("]⁉️\033[0m\n"));
 	}
 	else
