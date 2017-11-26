@@ -6,7 +6,7 @@
 /*   By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:46:52 by apachkof          #+#    #+#             */
-/*   Updated: 2017/11/26 22:06:07 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/26 22:30:46 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int		main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	ret = dummy_launcher();
-
 	return (ret);
 }

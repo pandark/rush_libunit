@@ -6,7 +6,7 @@
 #    By: apachkof <apachkof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 20:20:01 by apachkof          #+#    #+#              #
-#    Updated: 2017/11/26 20:20:43 by apachkof         ###   ########.fr        #
+#    Updated: 2017/11/26 22:43:35 by apachkof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LDLIBS =
 LDFLAGS = -Llibft_ntoniolo/
 NAME = libunit.a
 
-SRC_FILES = launch_tests.c \
+SRC_FILES = libunit_putnumber.c \
+			launch_tests.c \
 			redirect_stdout.c \
 			load_test.c
 
@@ -84,6 +85,9 @@ depend:
 		-o $(patsubst $(SRC_DIR)/%.c,$$(OBJ_DIR)/%.o, $(source))' >> 'Makefile';)
 
 ################################### Generated ##################################
+
+$(OBJ_DIR)/libunit_putnumber.o: $(SRC_DIR)/libunit_putnumber.c
+	$(CC) -c $(SRC_DIR)/libunit_putnumber.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/libunit_putnumber.o
 
 $(OBJ_DIR)/launch_tests.o: $(SRC_DIR)/launch_tests.c includes/libunit.h
 	$(CC) -c $(SRC_DIR)/launch_tests.c $(CFLAGS) $(CPPFLAGS) -o $(OBJ_DIR)/launch_tests.o

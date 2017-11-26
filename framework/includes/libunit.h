@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 20:57:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 19:07:27 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/26 22:41:00 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct			s_unit_test
 
 void					load_test(t_unit_test **tests, char *name, char flag, \
 		int (*f)(void));
+void					local_putnbr_fd(int fd, long int n);
 int						launch_tests(t_unit_test **tests);
 
 int						redirect_stdout_to_pipe(int *fd);

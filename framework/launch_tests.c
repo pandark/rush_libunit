@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 22:56:40 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 22:10:26 by apachkof         ###   ########.fr       */
+/*   Updated: 2017/11/26 22:41:12 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,6 @@ static char		*g_signals[] = {"HUP", "INT", "QUIT", "ILL", "TRAP", "ABRT",
 	"EMT", "FPE", "KILL", "BUSE", "SEGV", "SYS", "PIPE", "ALRM", "TERM", "URG",
 	"STOP", "TSTP", "CONT", "CHLD", "TTIN", "TTOU", "IO", "XCPU", "XFSZ",
 	"VTALRM", "PROF", "WINCH", "INFO", "USR1", "USR2"};
-
-static void		local_putnbr_fd(int fd, long int n)
-{
-	long int	nb;
-	char		c;
-
-	nb = n;
-	if (nb < 0)
-	{
-		write(fd, "-", 1);
-		nb = nb * -1;
-	}
-	if (nb > 9)
-	{
-		local_putnbr_fd(fd, nb / 10);
-		c = ((nb % 10) + 48);
-		write(fd, &c, 1);
-	}
-	else
-	{
-		c = nb + 48;
-		write(fd, &c, 1);
-	}
-}
 
 static int		print_normal_return(char *name, int res)
 {
