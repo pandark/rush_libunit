@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 12:22:06 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/11/26 17:17:01 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/11/30 17:49:37 by apachkof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void		co_putnbr(long int n)
 
 	nb = n;
 	if (nb < 0)
+	{
 		nb = nb * -1;
+		co_putchar('-');
+	}
 	if (nb > 9)
 	{
 		co_putnbr(nb / 10);
